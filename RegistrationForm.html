@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Form</title>
+	<script  type="text/javascript">
+		function Validation()
+		{
+			var letters = /^[A-Za-z ]+$/;
+			var name= document.form.name.value;
+			var jntuno = document.form.JNTUNo.value;
+			var phoneno = document.form.phone.value;
+			var emailid  = document.form.email.value;
+			var password = document.form.password.value;
+			// name validation
+			if(name==""||name==null){
+				alert("Name can't be blank");
+			}
+			if(name.match(letters)==null){
+				alert("Special Characters are not Allowed in Name ");
+				return false;
+			}
+
+			// jntuNo validation
+			if(jntuno==""||jntuno==null){
+				alert("JNTUNo can't be Blank");
+			}
+			if((jntuno.length > 10)||(jntuno.length < 10)){
+				alert("Invalid JUNTUNo, should contain exactly 10 Characters.");
+				return false;
+			}
+			var x = /^17501A0/
+			var y = /[A-Z0-9]$/
+			if(!((x.test(jntuno))&&(y.test(jntuno.substr(jntuno.length-3)))))
+			{
+				alert("Invalid JNTUNo !!!");
+				return false;
+			}
+			// phone number validation
+			if(phoneno=="")
+				{
+					alert("please Enter the Contact Number");
+					document.form.phone.focus();
+					return false;
+				}
+			if(isNaN(phoneno))
+			{
+				alert("Enter the valid Mobile Number(Like : 9566137117)");
+				return false;
+			}
+			if((phoneno.length < 1) || (phoneno.length > 10)||(phoneno.length<10)
+			{
+				alert(" Your Mobile Number must be 10 Digits Long");
+				document.form.phone.select();
+				return false;
+			}
+			//email Id validation
+			if(!(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailid))){
+				alert("Please enter a valid e-mail address \n"); 
+				return false;
+			}
+			var passid_len = password.length;
+			if (passid_len == 0 ||passid_len >= 12 || passid_len < 7)
+				{
+					alert("Password should not be empty / length be between "+7+" to "+12);
+					document.form.password.focus();
+					return false;
+				}
+			}
+		</script>
+
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+		<style type="text/css">
+
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta http-equiv="X-UA--Compatible" content="ie=edge">
+		
+	</style>
+
+		
+</head>
+<body >
+	<header>
+	
+	<div class="login_form">
+		<h2>Register</h2>
+		<form name="form" method="post" onsubmit="return Validation();">
+			<input type="text" name="name" class="login-form-field" placeholder="Full Name" required>
+			 <input type="text" name="email"  class="login-form-field" placeholder="Email" required><br><br>
+			 <input type="text" name="JNTUNo"  class="login-form-field" placeholder="College RollNo" required><br>
+			 <input type="text" name="phone"  class="login-form-field" placeholder="Mobile Number" required><br><br>
+      		<input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password" required><br><br><br>
+
+      		<input type="submit" value="SUBMIT" id="login-form-submit">
+      		
+
+		</form>
+		<br>
+		<table style="width: auto;"><tr>
+				<td style="width:50%"><hr></td>
+				<td style="vertical-align:middle; text-align: center">OR</td>
+				<td style="width:50%"><hr/></td>
+				</tr>
+		</table>
+		<br>
+		<button class='button1' style="background:#2F4CB3;color:white;border:none;width:95%;height:30px;border-radius: 8px;cursor: pointer;">f</button>
+		<br>
+		<button class='button2' style="background:red;color:white;border:none;width:95%;height:30px;border-radius:8px;margin-top:1%;cursor: pointer;">G+</button>
+		<br><br>
+		<button class='button3' style="background:#E0C60C;color:white;border:none;width:95%;height:30px;border-radius: 8px;margin-bottom:2%;cursor: pointer;">EPAM LOGIN</button>
+	</div>
+</header>
+
+</body>
+</html>
